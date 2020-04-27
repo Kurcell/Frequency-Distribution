@@ -20,8 +20,7 @@ public class SequentialFD<E extends Comparable<E>> extends AbstractFDStrategy<E>
 	@Override
 	public ArrayList<Map.Entry<E, Integer>> computeFDList(ArrayList<E> dataSet) {
 		
-		ArrayList<Map.Entry<E, Integer>> results = 
-				new ArrayList<Map.Entry<E, Integer>>(); 
+		ArrayList<Map.Entry<E, Integer>> results = new ArrayList<Map.Entry<E, Integer>>(); 
 		
 		for (E e : dataSet) { 
 			boolean entryFound = false; 
