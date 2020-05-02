@@ -9,7 +9,7 @@ import ciic4020.project2.sortedlist.SortedArrayList;
 
 /**
  * This class implements the SortedList strategy to count frequencies in an ArrayList.
- * @author YOUR NAME HERE
+ * @author Kevin Purcell
  * 
  * @param <E> The type of the elements whose frequencies are being counted.
  */
@@ -48,6 +48,17 @@ public class SortedListFD<E extends Comparable<E>> extends AbstractFDStrategy<E>
 	public SortedListFD() {
 		super("SortedList");
 	}
+	
+	/**
+	 * This is the method responsible for counting the frequencies in the array list.
+	 * It stores all the elements in dataSet into a sorted list as entries, ensuring that 
+	 * the entries are sorted. The implementation is then nearly identical to the SequentialFD
+	 * variation, except when checking if an entry is already present, the method only checks 
+	 * until it finds an entry whose key is greater than the target key. It also copies all entries
+	 * in the sorted list into results for returning.
+	 * 
+	 * @author Kevin Purcell
+	 */
 
 	@Override
 	public ArrayList<Map.Entry<E, Integer>> computeFDList(ArrayList<E> dataSet) {
@@ -67,9 +78,7 @@ public class SortedListFD<E extends Comparable<E>> extends AbstractFDStrategy<E>
 				i++;
 			}
 			if (!entryFound) { 
-				//need to create a new entry for the first instance found of object e
-				ComparableEntry<E, Integer> entry = new ComparableEntry<E, Integer>(e, 1); 
-				sortedlist.add(entry); 
+				sortedlist.add(new ComparableEntry<E, Integer>(e, 1)); 
 			}
 		}
 		for(int i = 0;i<sortedlist.size();i++) {
